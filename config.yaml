@@ -1,0 +1,23 @@
+logging:
+  receivers:
+    TestApp:
+      type: files
+      include_paths:
+        - /var/log/testapp.log
+  processors:
+    modify_severity:
+      type: modify_fields
+      fields:
+        severity:
+          copy_from: jsonPayload.severity
+          map_values:
+            "info2": "WARNING"
+
+    testapp_json:
+      type: parse_json
+
+  service:
+    pipelines:
+      default_pipeline:
+        receivers: [TestApp]
+        processors: [testapp_json, modify_severity]
