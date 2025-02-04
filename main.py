@@ -21,10 +21,11 @@ logger.addHandler(file_handler)
 
 i = 0
 
-while(True):
-    logger.info("10 seconds passed...")
-    if i == 3:
+while(True): 
+    if i == 2:
         i = 0
         logger.warning("30 seconds passed!")
+    else:
+        logger.info("10 seconds passed...")
     time.sleep(10)
     i += 1
