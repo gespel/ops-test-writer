@@ -3,8 +3,8 @@ import logging
 import time
 import google.cloud.logging
 
-client = google.cloud.logging.Client()
-client.setup_logging()
+#client = google.cloud.logging.Client()
+#client.setup_logging()
 
 logging.basicConfig(
     filename="/var/log/testapp.log",
