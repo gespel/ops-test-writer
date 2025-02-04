@@ -3,12 +3,12 @@ import logging
 import time
 
 logging.basicConfig(
-    filename="/var/log/oop-test.log",
+    filename="/var/log/testapp.log",
     level=logging.INFO,
     format="{\"timestamp\": \"%(asctime)s\", \"severity\": \"%(levelname)s\", \"message\": \"%(message)s\"}"
 )
 
-logger = logging.getLogger("oop-test-writer")
+logger = logging.getLogger("ops-test-writer")
 
 while(True):
     logger.info("1 second passed...")
