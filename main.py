@@ -22,7 +22,7 @@ logger.addHandler(file_handler)
 i = 0
 
 while(True): 
-    if i == 2:
+    if i == 3:
         i = 0
         logger.warning("30 seconds passed!")
     else:
