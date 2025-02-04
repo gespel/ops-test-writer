@@ -15,5 +15,5 @@ logging.basicConfig(
 logger = logging.getLogger("ops-test-writer")
 
 while(True):
-    logger.info("1 second passed...")
-    time.sleep(1)
+    logger.info("10 second passed...")
+    time.sleep(10)
