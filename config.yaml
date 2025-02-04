@@ -9,7 +9,7 @@ logging:
       type: modify_fields
       fields:
         severity:
-          copy_from: jsonPayload.severity
+          copy_from: jsonPayload.old_severity
           map_values:
             "info2": "WARNING"
 
