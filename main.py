@@ -19,10 +19,10 @@ file_handler.setFormatter(JsonFormatter())
 
 logger.addHandler(file_handler)
 
-i = 0
+i = 1
 
 while(True): 
-    if i == 3:
+    if i % 3 == 0:
         i = 0
         logger.warning("30 seconds passed!")
     else:
