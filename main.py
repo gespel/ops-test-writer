@@ -6,7 +6,7 @@ class JsonFormatter(logging.Formatter):
     def format(self, record):
         log_message = {
             "timestamp": self.formatTime(record),
-            "severity": record.levelname,  
+            "logging.googleapis.com/severity": record.levelname,  
             "message": record.getMessage()
         }
         return json.dumps(log_message)  
