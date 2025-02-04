@@ -1,18 +1,23 @@
 import json
 import logging
 import time
-import google.cloud.logging
 
-#client = google.cloud.logging.Client()
-#client.setup_logging()
-
-logging.basicConfig(
-    filename="/var/log/testapp.log",
-    level=logging.INFO,
-    format="{\"timestamp\": \"%(asctime)s\", \"severity\": \"%(levelname)s\", \"message\": \"%(message)s\"}"
-)
+class JsonFormatter(logging.Formatter):
+    def format(self, record):
+        log_message = {
+            "timestamp": self.formatTime(record),
+            "severity": record.levelname,  
+            "message": record.getMessage()
+        }
+        return json.dumps(log_message)  
 
 logger = logging.getLogger("ops-test-writer")
+logger.setLevel(logging.INFO)  
+
+file_handler = logging.FileHandler("/var/log/testapp.log")
+file_handler.setFormatter(JsonFormatter())
+
+logger.addHandler(file_handler)
 
 i = 0
 
