@@ -7,7 +7,7 @@ class JsonFormatter(logging.Formatter):
         log_message = {
             "logName": "TestApp",
             "timestamp": self.formatTime(record),
-            "logging.googleapis.com/severity": record.levelname,
+            "logging.googleapis.com/severity": "info",
             "message": record.getMessage()
         }
         return json.dumps(log_message)  
