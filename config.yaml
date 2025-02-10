@@ -4,14 +4,16 @@ logging:
       type: files
       include_paths:
         - /var/log/testapp.log
+
   processors:
     modify_severity:
       type: modify_fields
       fields:
         severity:
-          copy_from: jsonPayload.old_severity
+          copy_from: jsonPayload.level
           map_values:
-            "info2": "WARNING"
+            "info": "INFO"
+            "warning": "WARN"
 
     testapp_json:
       type: parse_json
