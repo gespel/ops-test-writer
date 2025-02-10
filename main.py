@@ -85,7 +85,7 @@ def mock():
         with open("/var/log/testapp.log", "a") as f:
             m = messages[random.randint(0, 7)]
             print(m)
-            f.write(m)
+            f.write(m + "\n")
         time.sleep(5)
 
 mock()
